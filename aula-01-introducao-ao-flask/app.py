@@ -15,6 +15,7 @@ def home():
 
 @app.route('/games')
 def games():
+<<<<<<< HEAD
     #criando variáveis para a rota de games
     titulo = "Portal 2"
     ano = 2011
@@ -37,6 +38,13 @@ def consoles():
                "Ano": 2000}
     return render_template('consoles.html',
                            console= console)
+=======
+    return render_template('games.html')
+
+@app.route('/consoles')
+def consoles():
+    return render_template('consoles.html')
+>>>>>>> ed217fd94d95f648fe38ca5a82abdc5d3f19a3b1
 
 
 # Iniciando o servidor na porta 5000

@@ -1,13 +1,9 @@
-
 {% extends 'base.html' %}
 {% block content %}
+<main>
     <h1>Bem-vindo ao The Games!</h1>
     <h3>Seu site favorito de jogos!</h3>
     <hr>
-
-    <h4>Menu</h4>
-    <ul>
-        <li><a href="/games">Página de Games</a></li>
-        <li><a href="/consoles">Páginas de Consoles</a></li>
-    </ul>
+    <img src="{{url_for('static',filename='/imgs/games.png')}}" alt="The Games">
+</main>
 {% endblock content %}
