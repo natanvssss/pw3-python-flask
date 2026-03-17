@@ -4,7 +4,12 @@ from flask import render_template, request
 
 
 def init_app(app):
+    # Variáveis Globais
+    listaConsoles = ['Playstation 5', 'Xbox One',
+                     'Super Nintendo', 'Atari', '3DS']
+
     # Criando a rota principal do site
+
     @app.route('/')
     # def cria funções no python
     def home():
@@ -32,8 +37,7 @@ def init_app(app):
         console = {"Nome": "Playstation 2",
                    "Fabricante": "Sony",
                    "Ano": 2000}
-        listaConsoles = ['Playstation 5', 'Xbox One',
-                         'Super Nintendo', 'Atari', '3DS']
+
         # Recebendo o valor do formulário
         if request.method == 'POST':
             if request.form.get('novoConsole'):
