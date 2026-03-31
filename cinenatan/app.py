@@ -1,19 +1,13 @@
 
 from flask import Flask, render_template  
 
+from controllers import routes
+
 app = Flask(__name__, template_folder ='views')
-@app.route('/')
 
-def home():
-    return render_template('index.html')
+routes.init_app(app)
 
-@app.route('/formulario')
-def games():
-    return render_template('formulario.html')
 
-@app.route('/lista')
-def consoles():
-    return render_template('lista.html')
 
 
 

@@ -1,0 +1,116 @@
+/*Universais*/
+*body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #141e30, #243b55);
+    color: white;
+    text-align: center;
+}
+
+*h1 {
+    font-size: 2.5rem;
+    margin-top: 40px;
+    color: #ffcc00;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    margin: 80px auto;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+*input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 20px;
+    background-color: #ffcc00;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 25px;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #ffaa00;
+    transform: scale(1.05);
+}
+
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: #dddddd;
+}
+
+hr {
+    width: 60%;
+    border: 1px solid #ffcc00;
+    margin: 20px auto;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 40px;
+    margin: 40px auto;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+table {
+    margin: 40px auto;
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+th,
+td {
+    padding: 15px;
+    border: 1px solid #ffcc00;
+}
+
+th {
+    background-color: #ffcc00;
+    color: black;
+    font-size: 18px;
+}
+
+tr:hover {
+    background-color: rgba(255, 204, 0, 0.2);
+    transition: 0.3s;
+}
+
+main {
+    width: 1300px;
+    min-height: 100vh;
+    margin: 1.5rem auto;
+    padding: 1rem 3rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
