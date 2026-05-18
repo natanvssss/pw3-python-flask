@@ -1,5 +1,5 @@
 # Importando o flask para a aplicação
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 # Criando a função principal para a inicializar as rotas
 
 
@@ -59,5 +59,8 @@ def init_app(app):
             listaGames.append({'titulo': request.form.get('titulo'), 'ano': request.form.get
             ('ano'), 'categoria': request.form.get('categoria'), 'plataforma': request.form.get('plataforma')})
             # .append adiciona um item na lista
+            #Aqui o usuário será redirecionado para a página
+            return redirect(url_for('cadgames'))
+            
         return render_template('cadgames.html',
                                listaGames = listaGames)

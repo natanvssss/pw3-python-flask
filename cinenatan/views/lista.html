@@ -6,31 +6,26 @@
 
     <h1>🎬 Lista de Filmes</h1>
 
-    <table>
+<h4>Filmes cadastrados</h4>
+
+<table class="table table-bordered table-hover">
+    <thead>
+
         <tr>
             <th>Filme</th>
             <th>Tipo</th>
             <th>Duração</th>
         </tr>
-
+    </thead>
+    <tbody>
+        {% for filme in listaFilmes %}
         <tr>
-            <td>Star Wars</td>
-            <td>Ficção Científica / Aventura</td>
-            <td>2h 1min</td>
+            <td>{{filme.filme}}</td>
+            <td>{{filme.tipo}}</td>
+            <td>{{filme.duracao}}</td>s
         </tr>
-
-        <tr>
-            <td>Senhor dos Anéis</td>
-            <td>Fantasia / Aventura</td>
-            <td>2h 58min</td>
-        </tr>
-
-        <tr>
-            <td>Harry Potter</td>
-            <td>Fantasia / Aventura</td>
-            <td>2h 32min</td>
-        </tr>
-
-    </table>
+        {% endfor %}
+    </tbody>
+</table>
 </main>
 {% endblock content %}

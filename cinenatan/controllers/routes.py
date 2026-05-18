@@ -1,8 +1,8 @@
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 
 
 def init_app(app):
-    listaFilmes =[{'filme': 'Star Wars', 'tipo': 'Ficçao','duração': '2h'}]
+    listaFilmes =[{'filme': 'Star Wars', 'tipo': 'Ficçao','duracao': '2h'}]
 
 
     @app.route('/')
@@ -12,31 +12,21 @@ def init_app(app):
 
     @app.route('/formulario')
     def form():
-        nome = nome
-        email = email
-        senha = senha
         return render_template('formulario.html')
     
-    @app.route('/cadfilmes')
-    def cad():
-        filme=filme
-        tipo = tipo
-        duracao = duracao
+    @app.route('/cadfilmes',methods=['GET','POST'])
+    def cadfilmes():
+        if request.method == 'POST':
+            listaFilmes.append({'filme': request.form.get('filme'), 'tipo' : request.form.get('tipo'), 'duracao' : request.form.get('duracao')})
+            return redirect(url_for('lista'))
         return render_template('cadfilmes.html')
 
 
         
     @app.route('/lista',methods=['GET','POST'])
-    def filmes():
-        filme = {"Filme":"Star Wars",
-                 "Tipo": "Ficção",
-                 "Duração": "2h11"}
-        if request.method == 'POST':
-            if request.form.get('novoFilme'):
-                listaFilmes.append(request.form.get('novoFilme'))
+    def lista():
         return render_template('lista.html',
-                               filme=filme,
-                               listaFilmes=listaFilmes)        
+                                 listaFilmes=listaFilmes)        
         
     @app.route('/cadgames', methods=['GET','POST'])
     def cadgames():
