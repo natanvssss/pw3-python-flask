@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="container py-5">
+    <section class="mb-5 text-center hero">
+        <h2>Explore os Pokémon</h2>
+        <p>Catálogo de pokémon.</p>
+    </section>
+
+    <div class="row g-4">
+        {% for pokemon in pokemons %}
+        <div class="col-md-3">
+            <div class="card pokemon-card h-100">
+                {% if pokemon.image %}
+                <img src="{{ pokemon.image }}" class="card-img-top" alt="{{ pokemon.name }}">
+                {% endif %}
+                <div class="card-body">
+                    <span class="badge bg-warning text-dark">#{{ pokemon.id }}</span>
+                    <h5 class="card-title mt-2">{{ pokemon.name }}</h5>
+                    <div class="types-container">
+                        {% for type_name in pokemon.types %}
+                        <span class="badge type-badge">{{ type_name }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="mt-3">
+                        <a href="{{ url_for('pokemon_detail', pokemon_name=pokemon.slug) }}" class="btn btn-primary w-100">Ver detalhes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+{% endblock content %}

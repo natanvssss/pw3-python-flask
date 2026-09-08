@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="container py-5">
+    <div class="detail-card">
+        <div class="row align-items-center">
+            <div class="col-md-5 text-center">
+                {% if pokemon.image %}
+                <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}">
+                {% endif %}
+            </div>
+            <div class="col-md-7">
+                <span class="badge bg-warning text-dark">#{{ pokemon.id }}</span>
+                <h2>{{ pokemon.name }}</h2>
+                <div class="types-container mb-3">
+                    {% for type_name in pokemon.types %}
+                    <span class="badge type-badge">{{ type_name }}</span>
+                    {% endfor %}
+                </div>
+                <p>{{ description }}</p>
+                <p><strong>Altura:</strong> {{ pokemon.height }} m</p>
+                <p><strong>Peso:</strong> {{ pokemon.weight }} kg</p>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h3>Estatísticas</h3>
+                <ul class="stat-list">
+                    {% for stat in stats %}
+                    <li>
+                        <span>{{ stat.stat.name }}</span>
+                        <strong>{{ stat.base_stat }}</strong>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h3>Evolução</h3>
+                {% if evolution %}
+                <ul class="stat-list">
+                    {% for item in evolution %}
+                    <li>{{ item|capitalize }}</li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>Sem cadeia de evolução disponível.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock content %}
