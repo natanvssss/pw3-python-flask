@@ -2,7 +2,7 @@
 from flask import render_template, request, redirect, url_for, session, flash
 # Criando a função principal para a inicializar as rotas
 # Importando o modo de Games
-from models.database import Game, db, Console, Usuario
+from models.database import Game, db, Console, Usuario, Imagem
 # Importando a biblioteca Werkzeug
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -234,6 +234,9 @@ def init_app(app):
     # ROTA DE UPLOAD DE ARQUIVO(GALERIA)
     @app.route('/galeria',methods=['GET','POST'])
     def galeria():
+        #Selecionando as imagens do banco (nome do arquivo)
+        imagens= Imagem.query.all()
+        
         # DEFININDO TIPOS DE ARQUIVOS PERMITIDOS
         FILE_TYPES = set(['png','jpg','jpeg','gif','webp'])
         def arquivos_permitidos(filename):
@@ -248,12 +251,16 @@ def init_app(app):
                 return redirect(request.url)
             # Se o tipo de arquivo for permitido
             filename = str(uuid.uuid4())
+            #Grava o nome do arquivo no banco de dados
+            imagem = Imagem(filename)
+            db.session.add(imagem)
+            db.session.commit()
             #Salva o arquivo na pasta uploads
             file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
             # Exibe mensagem de sucesso
             flash("Imagem recebida com suceso!","success")
             return redirect(url_for('galeria'))
-        return render_template('galeria.html')    
+        return render_template('galeria.html', imagens=imagens)    
         
 
             
